@@ -41,4 +41,8 @@ function removeBook(bookId) {
   if (!gBooks.length) gBooks = createBooks() //never live your app empty
 }
 
-function updateBook() {}
+function updateBook(bookId, title, price) {
+  var book = gBooks.find((book) => book.id === bookId)
+  book.price = price
+  book.title = title
+}

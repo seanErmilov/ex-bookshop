@@ -29,6 +29,9 @@ function onRemoveBook(bookId) {
 }
 
 function onUpdateBook(bookId) {
-  updateBook(bookId)
+  var title = prompt('enter title')
+  var price = prompt('Enter the new price:')
+
+  updateBook(bookId, title, price)
   render()
 }
