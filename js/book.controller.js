@@ -15,7 +15,7 @@ function render() {
     <td>${book.title}</td>
     <td>${book.price}</td>
     <td>
-        <button class="read">Read</button>   
+        <button class="read" onclick="onShowDetails(event, '${book.id}')">Read</button>   
         <button class="update" onclick="onUpdateBook('${book.id}')">Update</button>
         <button class="delete" onclick="onRemoveBook('${book.id}')">Delete</button>
     </td>
@@ -43,4 +43,13 @@ function onAddBook() {
 
   addbook(title, price)
   render()
+}
+
+function onShowDetails(ev, bookId) {
+  ev.stopPropagation()
+
+  const elModal = document.querySelector('.modal')
+  const elData = elModal.querySelector('pre')
+
+  elModal.showModal()
 }
