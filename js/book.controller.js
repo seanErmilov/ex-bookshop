@@ -15,10 +15,20 @@ function render() {
     <td>${book.price}</td>
     <td>
         <button class="read">Read</button>   
-        <button class="update">Update</button>
-        <button class="delete">Delete</button>
+        <button class="update" onclick="onUpdateBook(${book.id})">Update</button>
+        <button class="delete" onclick="onRemoveBook(${book.id})">Delete</button>
     </td>
   </tr>`
   )
   elbooks.innerHTML = strHtml.join('')
+}
+
+function onRemoveBook(bookId) {
+  removeBook(bookId)
+  render()
+}
+
+function onUpdateBook(bookId) {
+  updateBook(bookId)
+  render()
 }

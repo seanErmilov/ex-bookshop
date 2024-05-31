@@ -1,4 +1,5 @@
 'use strict'
+var gBooks = createBooks()
 
 var zBook = {
   id: 1234,
@@ -6,7 +7,8 @@ var zBook = {
   price: 120,
   imgUrl: 'lori-harry.jpg',
 }
-function getBooks() {
+
+function createBooks() {
   return [
     {
       id: 1234,
@@ -28,3 +30,15 @@ function getBooks() {
     },
   ]
 }
+function getBooks() {
+  return gBooks
+}
+
+function removeBook(bookId) {
+  var bookIDX = gBooks.findIndex((book) => book.id === bookId)
+  gBooks.splice(bookIDX, 1)
+  console.log('gBooks.length :', gBooks.length)
+  if (!gBooks.length) gBooks = createBooks() //never live your app empty
+}
+
+function updateBook() {}
