@@ -1,17 +1,12 @@
 'use strict'
 var gBooks = createBooks()
 
-var zBook = {
-  id: 1234,
-  title: 'harry',
-  price: 120,
-  imgUrl: 'lori-harry.jpg',
-}
+function createBook() {}
 
 function createBooks() {
   return [
     {
-      id: 1234,
+      id: 'grstt',
       title: 'harry potter',
       price: 120,
       imgUrl: 'lori-harry.jpg',
@@ -30,6 +25,7 @@ function createBooks() {
     },
   ]
 }
+
 function getBooks() {
   return gBooks
 }
@@ -45,4 +41,17 @@ function updateBook(bookId, title, price) {
   var book = gBooks.find((book) => book.id === bookId)
   book.price = price
   book.title = title
+}
+
+function addbook(title, price) {
+  var id = makeId(5)
+  console.log('id :', id)
+  var book = {
+    id,
+    title,
+    price: +price,
+    imgUrl: '',
+  }
+  gBooks.push(book)
+  console.log('gBooks :', gBooks)
 }

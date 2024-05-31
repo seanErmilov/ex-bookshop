@@ -1,6 +1,7 @@
 'use strict'
 
 function onInit() {
+  createBooks()
   render()
 }
 
@@ -15,8 +16,8 @@ function render() {
     <td>${book.price}</td>
     <td>
         <button class="read">Read</button>   
-        <button class="update" onclick="onUpdateBook(${book.id})">Update</button>
-        <button class="delete" onclick="onRemoveBook(${book.id})">Delete</button>
+        <button class="update" onclick="onUpdateBook('${book.id}')">Update</button>
+        <button class="delete" onclick="onRemoveBook('${book.id}')">Delete</button>
     </td>
   </tr>`
   )
@@ -33,5 +34,13 @@ function onUpdateBook(bookId) {
   var price = prompt('Enter the new price:')
 
   updateBook(bookId, title, price)
+  render()
+}
+
+function onAddBook() {
+  var title = prompt('enter title')
+  var price = prompt('Enter the new price:')
+
+  addbook(title, price)
   render()
 }

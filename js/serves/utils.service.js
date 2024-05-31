@@ -88,3 +88,15 @@ function pad(val) {
   if (str.length < 2) return '0' + str
   else return str
 }
+
+function makeId(length = 5) {
+  var id = ''
+  var possible =
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+
+  for (var i = 0; i < length; i++) {
+    id += possible.charAt(getRandomInt(0, possible.length))
+  }
+
+  return id
+}

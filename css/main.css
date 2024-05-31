@@ -43,3 +43,6 @@ thead {
 .delete {
   background-color: rgb(205, 53, 53);
 }
+.modal {
+  background-color: black;
+}
