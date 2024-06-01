@@ -48,8 +48,18 @@ function onAddBook() {
 function onShowDetails(ev, bookId) {
   ev.stopPropagation()
 
+  var book = getBookById(bookId)
+
   const elModal = document.querySelector('.modal')
   const elData = elModal.querySelector('pre')
+
+  elData.innerHTML = `
+      <section class="book-details-container">
+      <div>${book.title}</div>
+      <img src="img/${book.imgUrl}" alt="Img of ${book.title}" />
+      <div>${book.price}</div>
+      <button onClick="onRemoveBook()">buy</button>
+      </section>`
 
   elModal.showModal()
 }

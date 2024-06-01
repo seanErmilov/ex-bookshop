@@ -7,21 +7,21 @@ function createBooks() {
   return [
     {
       id: 'grstt',
-      title: 'harry potter',
+      title: 'Harry Potter',
       price: 120,
-      imgUrl: 'lori-harry.jpg',
+      imgUrl: 'harry-potter.jpg',
     },
     {
-      id: 1114,
-      title: 'loli',
+      id: '1114',
+      title: 'Game Of Thrones',
       price: 110,
-      imgUrl: 'lori-harry.jpg',
+      imgUrl: 'game-of-thrones.jpeg',
     },
     {
-      id: 1224,
-      title: 'giti',
+      id: '1224',
+      title: 'Moby Dick',
       price: 230,
-      imgUrl: 'lori-harry.jpg',
+      imgUrl: 'moby-dick.jpg',
     },
   ]
 }
@@ -33,7 +33,6 @@ function getBooks() {
 function removeBook(bookId) {
   var bookIDX = gBooks.findIndex((book) => book.id === bookId)
   gBooks.splice(bookIDX, 1)
-  console.log('gBooks.length :', gBooks.length)
   if (!gBooks.length) gBooks = createBooks() //never live your app empty
 }
 
@@ -45,7 +44,6 @@ function updateBook(bookId, title, price) {
 
 function addbook(title, price) {
   var id = makeId(5)
-  console.log('id :', id)
   var book = {
     id,
     title,
@@ -53,5 +51,8 @@ function addbook(title, price) {
     imgUrl: '',
   }
   gBooks.push(book)
-  console.log('gBooks :', gBooks)
+}
+
+function getBookById(bookId) {
+  return gBooks.find((book) => book.id === bookId)
 }

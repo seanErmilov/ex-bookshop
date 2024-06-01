@@ -44,5 +44,30 @@ thead {
   background-color: rgb(205, 53, 53);
 }
 .modal {
-  background-color: black;
+  position: relative;
+  background-color: rgb(208, 116, 116);
+  height: 50 vh;
+  width: 30 vh;
+}
+.close-btn {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  padding: 10px;
+
+  top: 0;
+  right: 0;
+}
+img {
+  height: 150px;
+}
+.book-details-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
