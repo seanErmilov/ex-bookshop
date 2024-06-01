@@ -9,6 +9,9 @@
   </head>
   <body onload="onInit()">
     <main>
+      <form class="add-todo" onsubmit="onAddTodo(event)">
+        <input type="text" placeholder="filtter books" />
+      </form>
       <table>
         <thead>
           <th>Title</th>
