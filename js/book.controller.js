@@ -1,5 +1,6 @@
 'use strict'
 
+var gFillterBy = ''
 function onInit() {
   getBooksAtLoad()
   console.log('gBooks :', gBooks[0].title)
@@ -63,4 +64,8 @@ function onShowDetails(ev, bookId) {
       </section>`
 
   elModal.showModal()
+}
+
+function onFillterBooks() {
+  fillterBooks()
 }
