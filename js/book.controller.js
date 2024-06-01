@@ -1,7 +1,8 @@
 'use strict'
 
 function onInit() {
-  createBooks()
+  getBooksAtLoad()
+  console.log('gBooks :', gBooks[0].title)
   render()
 }
 

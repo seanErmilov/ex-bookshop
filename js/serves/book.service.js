@@ -1,7 +1,5 @@
 'use strict'
-var gBooks = createBooks()
-
-function createBook() {}
+var gBooks
 
 function createBooks() {
   return [
@@ -30,16 +28,26 @@ function getBooks() {
   return gBooks
 }
 
+function getBooksAtLoad() {
+  gBooks = getFromLocalStorage('gBooks')
+  console.log('gBooks :', gBooks)
+  if (!gBooks) gBooks = createBooks()
+}
+
 function removeBook(bookId) {
   var bookIDX = gBooks.findIndex((book) => book.id === bookId)
   gBooks.splice(bookIDX, 1)
+
   if (!gBooks.length) gBooks = createBooks() //never live your app empty
+  _saveBooks()
 }
 
 function updateBook(bookId, title, price) {
   var book = gBooks.find((book) => book.id === bookId)
   book.price = price
   book.title = title
+
+  _saveBooks()
 }
 
 function addbook(title, price) {
@@ -51,8 +59,14 @@ function addbook(title, price) {
     imgUrl: '',
   }
   gBooks.push(book)
+
+  _saveBooks()
 }
 
 function getBookById(bookId) {
   return gBooks.find((book) => book.id === bookId)
+}
+
+function _saveBooks() {
+  saveToLocalStorage('gBooks', gBooks)
 }
